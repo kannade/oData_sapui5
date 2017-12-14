@@ -1,0 +1,77 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m"
+	controllerName="alfa.hr.ess.Employees.controller.App" displayBlock="true" id="appVwId">
+	<App id="app" initialPage="mainPage">
+		<pages>
+			<Page id="mainPage" title="{i18n>title}">
+				<content>
+					<sap.ui.layout:VerticalLayout width="100%">
+						<sap.ui.layout:content>
+							<ToolBar>
+								<content>
+									<FlexBox height="50px" alignItems="Center" justifyContent="Start">
+										<items>
+											<Label class="sapUiSmallMarginBeginEnd" text="Орг. единица:" width="10rem"/>
+											<Input width="300px" value="{SelMdl>/orgeh}" submit="onChangeFilter"/>
+										</items>
+									</FlexBox>
+								</content>
+							</ToolBar>
+							<Table mode="MultiSelect" noDataText="Нет данных" id="__table0" items="{ path : '/EmployeeEmails', sorter : { path : 'pernr' } }" growingThreshold="20" growing="true"
+								growingScrollToLoad="false">
+								<ColumnListItem id="firstItem" type="Navigation" press="onTblDetail">
+									<cells>
+										<Text text="{pernr}"/>
+										<Text text="{lName}"/>
+										<Text text="{fName}"/>
+										<DatePicker displayFormat="dd.MM.yyyy" dateValue="{begda}"/>
+										<Input value="{email}"/>
+										<Button class="alfaBtn" icon="sap-icon://edit-outside" text="Изменить e-mail" press="onChangeEmail"></Button>
+									</cells>
+								</ColumnListItem>
+								<columns>
+									<Column hAlign="Center" width="10rem">
+										<header>
+											<Label text="{i18n>pernr}"/>
+										</header>
+									</Column>
+									<Column width="10rem">
+										<header>
+											<Label text="{i18n>lastName}"/>
+										</header>
+									</Column>
+									<Column width="10rem">
+										<header>
+											<Label text="{i18n>firstName}"/>
+										</header>
+									</Column>
+									<Column width="8rem">
+										<header>
+											<Label text="{i18n>emailBegda}"/>
+										</header>
+									</Column>
+									<Column width="15rem">
+										<header>
+											<Label text="{i18n>email}"/>
+										</header>
+									</Column>
+									<Column>
+										<header></header>
+									</Column>
+								</columns>
+							</Table>
+						</sap.ui.layout:content>
+					</sap.ui.layout:VerticalLayout>
+				</content>
+				<footer>
+					<Bar id="__bar0">
+						<contentRight>
+							<Button class="alfaBtn" icon="sap-icon://delete" text="{i18n>deleteEmailText}" width="140px" type="Emphasized"
+								press="onDeleteInTableEmailBtn"/>
+							<Button class="alfaBtn" icon="sap-icon://save" text="{i18n>saveBtnText}" width="140px" id="__button0" type="Emphasized" press="onSaveBtn"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

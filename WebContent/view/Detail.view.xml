@@ -1,0 +1,54 @@
+<core:View xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:sap.ui.layout="sap.ui.layout"
+	controllerName="alfa.hr.ess.Employees.controller.Detail" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{i18n>detailPageTitle}" showNavButton="true" navButtonPress="onNavBack">
+		<content>
+			<sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true">
+				<sap.ui.layout.form:formContainers>
+					<sap.ui.layout.form:FormContainer title="Подробные данные">
+						<sap.ui.layout.form:formElements>
+							<sap.ui.layout.form:FormElement label="Фамилия">
+								<sap.ui.layout.form:fields>
+									<Input width="100%" editable="false" value="{lName}"/>
+								</sap.ui.layout.form:fields>
+							</sap.ui.layout.form:FormElement>
+							<sap.ui.layout.form:FormElement label="Имя">
+								<sap.ui.layout.form:fields>
+									<Input width="100%" editable="false" value="{fName}"/>
+								</sap.ui.layout.form:fields>
+							</sap.ui.layout.form:FormElement>
+						</sap.ui.layout.form:formElements>
+					</sap.ui.layout.form:FormContainer>
+				</sap.ui.layout.form:formContainers>
+				<sap.ui.layout.form:layout>
+					<sap.ui.layout.form:ResponsiveGridLayout/>
+				</sap.ui.layout.form:layout>
+			</sap.ui.layout.form:Form>
+			<Table width="100%" noDataText="Нет данных" id="__table0" items="{ path : 'Absences' }" headerText="Отсутствия">
+				<ColumnListItem>
+					<cells>
+						<Text text="{desc}"/>
+						<DatePicker editable="false" value="{ path: 'begda', type: 'sap.ui.model.type.Date', displayFormat : 'dd.MM.yyyy' }" width="10rem"/>
+						<DatePicker editable="false" value="{ path: 'endda', type: 'sap.ui.model.type.Date', displayFormat : 'dd.MM.yyyy' }" width="10rem"/>
+					</cells>
+				</ColumnListItem>
+				<columns>
+					<Column vAlign="Middle" hAlign="Center">
+						<header>
+							<Label text="Название" id="__label4"/>
+						</header>
+					</Column>
+					<Column vAlign="Middle" hAlign="Center">
+						<header>
+							<Label text="Дата начала" id="__label2"/>
+						</header>
+					</Column>
+					<Column vAlign="Middle" hAlign="Center">
+						<header>
+							<Label text="Дата окончания" id="__label3"/>
+						</header>
+					</Column>
+				</columns>
+			</Table>
+		</content>
+	</Page>
+</core:View>

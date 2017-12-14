@@ -1,0 +1,6 @@
+{
+  "deploy": {
+    "destination": "HR7",
+    "name": "ZHR_ESS_EMPL"
+  }
+}

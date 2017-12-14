@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:sap.ui.layout="sap.ui.layout">
+	<Dialog id="dlgId" title="Изменение e-mail">
+		<content>
+			<sap.ui.layout:VerticalLayout >
+				<sap.ui.layout:content>
+					<FlexBox height="50px" alignItems="Center" justifyContent="Start">
+						<items>
+							<Label class="sapUiSmallMarginBeginEnd" text="E-mail:" width="50px" />
+							<Input width="300px" value="{chData>/email}" />
+							<Button class="sapUiTinyMarginBegin" icon="sap-icon://delete"
+								press="onDeleteBtn" />
+						</items>
+					</FlexBox>
+					<FlexBox height="50px" alignItems="Center" justifyContent="Start">
+						<items>
+							<Label class="sapUiSmallMarginBeginEnd" text="Дата:" width="50px" />
+							<DatePicker width="300px" displayFormat="dd.MM.yyyy"
+								dateValue="{ path : 'chData>/begda' }" />
+							<Button class="sapUiTinyMarginBegin" text="{i18n>createEmailBtnText}"
+								icon="sap-icon://create" press="onCreateBtn" />
+						</items>
+					</FlexBox>
+				</sap.ui.layout:content>
+			</sap.ui.layout:VerticalLayout>
+		</content>
+		<buttons>
+			<Button type="Emphasized" icon="sap-icon://save" text="{i18n>saveBtnText}"
+				press="onSaveDlg" />
+			<Button text="{i18n>closeBtnText}" press="onCloseDlg" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
